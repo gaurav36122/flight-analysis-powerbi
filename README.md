@@ -61,20 +61,21 @@ Performed using Power Query: - Removed duplicates\
 - Created KPIs using DAX measures
 
 ## DAX Measures Used (Example)
+Ave_flight_delay_by_departures =
+CALCULATE(AVERAGE('power bi flight'[Departure Delay (Minutes)]))
 
-  Ave_flight_delay_by_departures = CALCULATE(AVERAGE('power bi flight'[Departure Delay (Minutes)]))
-  
-  Avg_flight_delay_by_arrivals = CALCULATE(AVERAGEA('power bi flight'[Arrival Delay (Minutes)]))
-  
-  cancelled = CALCULATE(COUNTROWS('power bi flight'),FILTER('power bi flight','power bi flight'[Flight Status]="Cancelled"))
-  
-  distribution_flights_by_airline = CALCULATE(DISTINCTCOUNT('power bi flight'[Airline]))
-  
-  Flight_delay_by_arrival = CALCULATE(AVERAGE('power bi flight'[Arrival Delay (Minutes)]))
-  
-  flights_handled_by_the_airport_authority = CALCULATE(COUNTA('power bi flight'[Arrival Airport]))
-  
-  total_flight_delayed = CALCULATE(COUNTROWS('power bi flight'),FILTER('power bi flight','power bi flight'[Flight Status]="Delayed"))
+Avg_flight_delay_by_arrivals =CALCULATE(AVERAGEA('power bi flight'[Arrival Delay (Minutes)]))
+
+cancelled =CALCULATE(COUNTROWS('power bi flight'),FILTER('power bi flight', 'power bi flight'[Flight Status] = "Cancelled"))
+
+distribution_flights_by_airline =CALCULATE(DISTINCTCOUNT('power bi flight'[Airline]))
+
+Flight_delay_by_arrival =CALCULATE(AVERAGE('power bi flight'[Arrival Delay (Minutes)]))
+
+flights_handled_by_the_airport_authority =CALCULATE(COUNTA('power bi flight'[Arrival Airport]))
+
+total_flight_delayed =CALCULATE(COUNTROWS('power bi flight'),FILTER('power bi flight', 'power bi flight'[Flight Status] = "Delayed"))
+
   
 
 ## Tools Used
